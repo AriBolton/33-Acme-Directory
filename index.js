@@ -66,14 +66,14 @@ server.use(morgan("dev"));
 // Routes
 server.get('/api/employees', async (req, res, next) => {
     try {
-        const SQL = 'SELECT * FROM employee';
+        const SQL = 'SELECT * FROM employees';
         const response = await client.query(SQL);
         res.status(200).json(response.rows);
     } catch (error) {
         res.status(500).json({ error: 'Failed to retrieve employees' });
     }
 });
-server.get('/api/departments', async (req, res, next) => {
+server.get('/api/department', async (req, res, next) => {
     try {
         const SQL = 'SELECT * FROM department';
         const response = await client.query(SQL);
